@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/style.css" />
+  <title>Solar System: code4git</title>
+</head>
+<body style="margin: 0; overflow: hidden;">
+
+  <!-- 3D canvas is injected by Three.js -->
+  <div id="app"></div>
+
+  <!-- 🛠️ Control Panel -->
+ <!-- 🌐 Top Navbar -->
+<nav id="topNavbar">
+  <div class="nav-left">
+    <span class="brand">☀️ Solar Explorer</span>
+  </div>
+
+  <div class="nav-right">
+    <!-- Speed Control -->
+    <label class="nav-item">
+      Speed:
+      <input type="range" id="timeSpeed" min="0" max="5" step="0.1" value="1">
+      <span id="timeSpeedValue">1.0x</span>
+    </label>
+
+    <!-- Buttons -->
+     <button id="toggleSpeedPanelBtn">⚙️ Planet Speed</button>
+    <button id="pauseResumeBtn">⏸ Pause</button>
+    <button id="themeToggleBtn">🌗 Theme</button>
+    <button id="resetViewBtn">🔁 Reset</button>
+  </div>
+</nav>
+
+<div id="factSheet">
+  <button id="closeFactBtn">✖</button>
+  <h2 id="factTitle"></h2>
+  <p><strong>Diameter:</strong> <span id="factDiameter"></span></p>
+  <p><strong>Distance from Sun:</strong> <span id="factDistance"></span></p>
+  <p><strong>Orbital Period:</strong> <span id="factOrbit"></span></p>
+  <p id="factDescription" style="margin-top: 15px;"></p>
+</div>
+<div id="planetSpeedPanel">
+  <h3>🪐 Adjust Planet Speeds</h3>
+  <label>Mercury <input type="range" id="mercurySlider" min="0" max="0.1" step="0.001" value="0.02"></label>
+  <label>Venus <input type="range" id="venusSlider" min="0" max="0.1" step="0.001" value="0.015"></label>
+  <label>Earth <input type="range" id="earthSlider" min="0" max="0.1" step="0.001" value="0.01"></label>
+  <label>Mars <input type="range" id="marsSlider" min="0" max="0.1" step="0.001" value="0.008"></label>
+  <label>Jupiter <input type="range" id="jupiterSlider" min="0" max="0.1" step="0.001" value="0.004"></label>
+  <label>Saturn <input type="range" id="saturnSlider" min="0" max="0.1" step="0.001" value="0.003"></label>
+  <label>Uranus <input type="range" id="uranusSlider" min="0" max="0.1" step="0.001" value="0.002"></label>
+  <label>Neptune <input type="range" id="neptuneSlider" min="0" max="0.1" step="0.001" value="0.001"></label>
+</div>
+
+<div id="planetTooltip"></div>
+
+  <!-- 🎬 Script -->
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

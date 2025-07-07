@@ -1,0 +1,171 @@
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow: hidden;
+}
+#factSheet {
+  position: fixed;
+  top: 60px; /* ✅ push below navbar */
+  right: -400px;
+  width: 350px;
+  height: calc(100% - 60px); /* ✅ avoid overflow under navbar */
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 20px;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+  transition: right 0.3s ease;
+  z-index: 20;
+  overflow-y: auto;
+  backdrop-filter: blur(8px);
+  font-family: sans-serif;
+}
+
+
+#closeFactBtn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+#planetTooltip {
+  position: fixed;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: sans-serif;
+  z-index: 999;
+  white-space: nowrap;
+  transform: translate(-50%, -150%);
+  display: none;
+}
+/* 🌐 Navbar Styling */
+#topNavbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.85);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 50;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  backdrop-filter: blur(8px);
+}
+
+#topNavbar .brand {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* ✅ already present */
+  gap: 12px;        /* ✅ overwrite previous 15px */
+}
+
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.nav-right button {
+  background-color: #222;
+  border: 1px solid #444;
+  padding: 6px 10px;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+.nav-right button,
+.nav-right .nav-item {
+  white-space: nowrap;
+  flex-shrink: 1;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-right button:hover {
+  background-color: #333;
+}
+/* 🌌 Planet Speed Panel */
+#planetSpeedPanel {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  width: 250px;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: sans-serif;
+  z-index: 60;
+  display: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+}
+
+#planetSpeedPanel h3 {
+  margin-top: 0;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#planetSpeedPanel label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  #topNavbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-right {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .nav-right button,
+  .nav-item {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .nav-item input[type="range"] {
+    width: 100%;
+  }
+}
